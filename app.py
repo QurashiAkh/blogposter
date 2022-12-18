@@ -19,7 +19,8 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False, default='N/A')
     content = db.Column(db.Text, nullable=False, default='N/A')
     author = db.Column(db.String(30), nullable=False, default='N/A')
-    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    date_posted = db.Column(db.DateTime, nullable=False,
+                            default=datetime.now())
 
 # Routing
 
@@ -27,6 +28,7 @@ class Post(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/posts', methods=['GET', 'POST'])
 @app.route('/posts/', methods=['GET', 'POST'])
@@ -47,17 +49,20 @@ def posts():
         all_posts = Post.query.order_by(Post.date_posted).all()
         return render_template('posts.html', posts=all_posts)
 
+
 @app.route('/posts/new/')
 @app.route('/posts/new')
 def new_post():
     return render_template('new-post.html')
 
+
 @app.route('/posts/<int:id>')
 @app.route('/posts/<int:id>/')
 def post(id):
     post = Post.query.get_or_404(id)
-    
+
     return render_template('post.html', post=post)
+
 
 @app.route('/posts/<int:id>/edit', methods=['GET', 'POST'])
 @app.route('/posts/<int:id>/edit/', methods=['GET', 'POST'])
@@ -76,6 +81,7 @@ def edit(id):
     else:
         return render_template('edit-post.html', post=post)
 
+
 @app.route('/posts/<int:id>/delete')
 @app.route('/posts/<int:id>/delete/')
 def delete(id):
@@ -85,10 +91,12 @@ def delete(id):
 
     return redirect('/posts/')
 
+
 @app.route('/about')
 @app.route('/about/')
 def about():
     return render_template('about.html')
+
 
 if __name__ == "__main__":
     app.run(debug=False)
