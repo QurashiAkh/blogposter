@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About - Blogposter</title>
+{% endblock %}
+
+{% block body %}
+<h3>About Blogposter</h3>
+<p>
+  It is a Small Web Application made to demonstrate how HTTP and Internet Protocols generally work. <br />
+  Developed by <a href="https://github.com/QurashiAkh">Husayn al-Qurashi</a>.
+</p>
+<hr/>
+<p>
+  I developed this Web App using the Python Programming Language, by the Help of the <a href="https://flask.palletsprojects.com/">Flask Framework</a> and the SQLAlchemy API.
+  I set Templates using the Jinja Templating Library and routed each Webpage for its own Template, although some routes (e.g. <code>/posts</code> and <code>/posts/edit</code>) do support <code>POST</code> Methods too and not only <code>GET</code> Methods - in which a Jinja Template is served.
+  <br />
+  <br />
+  Concerning the UI (i.e. User Interface), I've used <a href="http://getskeleton.com/">Skeleton</a>, which is a light-weight CSS Library. Skeleton did help me improve the UI of the Web App via its simple class-based CSS styling.
+  <br />
+  <br />
+  As of the Favicon, I've used <a href="https://pixlr.com/x">Pixlr</a> to design it.
+</p>
+<a href="/" class="button button-primary">
+    Return to the Home Page &raquo;
+  </a>
+{% endblock %}

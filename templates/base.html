@@ -1,0 +1,52 @@
+<!-- بسم الله الرحمن الرحيم -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Blogposter: A Demo Website" />
+  <meta name="author" content="Husayn al-Qurashi" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/static/css/normalize.css" />
+  <link rel="stylesheet" href="/static/css/skeleton.css" />
+  <link rel="icon" type="image/png" href="/static/images/favicon.ico" />
+  {% block head %} {% endblock %}
+</head>
+
+<body>
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="nine columns">
+        <a href="/" style="text-decoration: none; color: black; font-size: x-large;">
+          Blogposter
+        </a>
+      </div>
+      <div class="one column">
+        <a href="/" style="text-decoration: none; color: black;">
+          Home
+        </a>
+      </div>
+      <div class="one column">
+        <a href="/posts/" style="text-decoration: none; color: black;">
+          Posts
+        </a>
+      </div>
+      <div class="one column">
+        <a href="/about" style="text-decoration: none; color: black;">
+          About
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <br />
+    {% block body %} {% endblock %}
+  </div>
+</body>
+
+</html>
+
+<!-- تم بحمد الله -->

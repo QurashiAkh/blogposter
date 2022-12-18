@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts - Blogposter</title>
+{% endblock %}
+
+{% block body %}
+<h3>All Posts</h3>
+<a href="/posts/new/" class="button button-primary">+ New Post</a>
+<hr />
+
+{% if posts|count < 1 %} <p>
+    There are no Posts at this Moment. Do you want to <a href="/posts/new/">create</a> One?
+    </p>
+    {% else %}
+
+    {% for post in posts %}
+
+    {% if post.title %}
+    <h4><a href="/posts/{{ post.id }}" style="text-decoration: none; color: black; font-size: x-large;">{{ post.title }}</a></h4>
+    {% else %}
+    <h4>N/A</h4>
+    {% endif %}
+
+    {% if post.author %}
+    <p>Written By {{ post.author }} on {{ post.date_posted }}</p>
+    {% else %}
+    <p>Written By N/A on {{ post.date_posted }}</p>
+    {% endif %}<hr />
+
+    {% endfor %}
+
+    {% endif %}
+
+    {%endblock %}

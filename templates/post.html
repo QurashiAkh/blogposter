@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts - Blogposter</title>
+{% endblock %}
+
+{% block body %}
+
+{% if post.title %}
+<h3>{{ post.title }}</h3>
+{% else %}
+<h3>N/A</h3>
+{% endif %}
+
+{% if post.author %}
+<small>Written By {{ post.author }} on {{ post.date_posted }}</small>
+{% else %}
+<small>Written By N/A on {{ post.date_posted }}</small>
+{% endif %}
+<hr />
+
+{% if post.content %}
+<p style="white-space: pre-wrap;">{{ post.content }}</p>
+{% else %}
+<p style="white-space: pre-wrap;">N/A</p>
+{% endif %}
+<hr />
+
+<a href="/posts/{{ post.id }}/delete" class="button">Delete</a>
+<a href="/posts/{{ post.id }}/edit" class="button">Edit</a>
+
+{%endblock %}
