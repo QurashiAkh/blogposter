@@ -1,6 +1,6 @@
 # Blogposter
 
-It is a Small Web Application made to demonstrate how HTTP and Internet Protocols generally work.
+A Small Web Application made to demonstrate how HTTP and Internet Protocols generally work.
 Developed by [Husayn al-Qurashi](https://github.com/QurashiAkh).
 
 I developed this Web App using the Python Programming Language, by the Help of the [Flask Framework](https://flask.palletsprojects.com/) and the SQLAlchemy API. I set Templates using the Jinja Templating Library and routed each Webpage for its own Template, although some routes (e.g. `/posts` and `/posts/edit`) do support `POST` Methods too and not only `GET` Methods - in which a Jinja Template is served.  
