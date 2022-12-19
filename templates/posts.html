@@ -24,10 +24,17 @@
     {% endif %}
 
     {% if post.author %}
-    <p>Written By {{ post.author }} on {{ post.date_posted }}</p>
+    <small style="color: rgba(0, 0, 0, 0.5)">Written By {{ post.author }} on {{ post.date_posted }}</small>
     {% else %}
-    <p>Written By N/A on {{ post.date_posted }}</p>
+    <small style="color: rgba(0, 0, 0, 0.5)">Written By N/A on {{ post.date_posted }}</small>
     {% endif %}
+
+    {% if post.content %}
+    <p>{{ post.content|truncate(30, True) }}</p>
+    {% else %}
+    <p>N/A</p>
+    {% endif %}
+
     <hr />
 
     {% endfor %}
