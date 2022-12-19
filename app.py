@@ -43,7 +43,7 @@ def posts():
         db.session.add(new_post)
         db.session.commit()
 
-        return redirect('/posts/')
+        return redirect(f'/posts/{new_post.id}')
 
     else:
         all_posts = Post.query.order_by(Post.date_posted).all()
@@ -76,7 +76,7 @@ def edit(id):
         post.content = request.form['content']
         db.session.commit()
 
-        return redirect('/posts/')
+        return redirect(f'/posts/{post.id}')
 
     else:
         return render_template('edit-post.html', post=post)
