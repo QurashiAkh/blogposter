@@ -22,6 +22,23 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False,
                             default=datetime.now())
 
+# A Function that fixes dates
+
+def to_fixed_datetime(data):
+    if type(data) == list:
+        new_posts = []
+        for post in data:
+            post.date_posted = post.date_posted.strftime("%d/%m/%Y %H:%M:%S")
+            new_posts.append(post)
+
+        return new_posts
+
+    else:
+        new_post = data
+        new_post.date_posted = data.date_posted.strftime("%d/%m/%Y %H:%M:%S")
+        return new_post
+
+
 # Routing
 
 
@@ -47,7 +64,7 @@ def posts():
 
     else:
         all_posts = Post.query.order_by(Post.date_posted).all()
-        return render_template('posts.html', posts=all_posts)
+        return render_template('posts.html', posts=to_fixed_datetime(all_posts))
 
 
 @app.route('/posts/new/')
@@ -61,7 +78,7 @@ def new_post():
 def post(id):
     post = Post.query.get_or_404(id)
 
-    return render_template('post.html', post=post)
+    return render_template('post.html', post=to_fixed_datetime(post))
 
 
 @app.route('/posts/<int:id>/edit', methods=['GET', 'POST'])
@@ -79,7 +96,7 @@ def edit(id):
         return redirect(f'/posts/{post.id}')
 
     else:
-        return render_template('edit-post.html', post=post)
+        return render_template('edit-post.html', post=to_fixed_datetime(post))
 
 
 @app.route('/posts/<int:id>/delete')
