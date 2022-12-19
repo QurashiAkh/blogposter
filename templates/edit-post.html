@@ -8,32 +8,19 @@
 <h3>Editing Post</h3>
 
 <hr />
-<form action="/posts/{{ post.id }}/edit" method="post">
+<form action="/posts/{{ post.id }}/edit" method="put">
   <label for="title">Title:</label>
-  <input
-    type="text"
-    name="title"
-    id="title"
-    value="{{ post.title }}"
-  />
+  <input type="text" name="title" id="title" value="{{ post.title }}" />
   <br />
   <label for="author">Author:</label>
-  <input
-    type="text"
-    name="author"
-    id="author"
-    value="{{ post.author }}"
-  />
+  <input type="text" name="author" id="author" value="{{ post.author }}" />
   <br />
   <label for="content">Post:</label>
   <textarea class="u-full-width" id="content" name="content" rows="2">
-{{ post.content }}</textarea
-  >
+{{ post.content }}</textarea>
   <br />
-  <input type="submit" value="Save" />
-  <a href="/posts/" class="button"
-    >Cancel</a
-  >
+  <input type="submit" class="button button-primary" value="Save" />
+  <a href="/posts/" class="button">Cancel</a>
 </form>
 <hr />
 

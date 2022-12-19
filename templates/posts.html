@@ -17,7 +17,8 @@
     {% for post in posts %}
 
     {% if post.title %}
-    <h4><a href="/posts/{{ post.id }}" style="text-decoration: none; color: black; font-size: x-large;">{{ post.title }}</a></h4>
+    <h4><a href="/posts/{{ post.id }}" style="text-decoration: none; color: black; font-size: x-large;">{{ post.title
+            }}</a></h4>
     {% else %}
     <h4>N/A</h4>
     {% endif %}
@@ -26,7 +27,8 @@
     <p>Written By {{ post.author }} on {{ post.date_posted }}</p>
     {% else %}
     <p>Written By N/A on {{ post.date_posted }}</p>
-    {% endif %}<hr />
+    {% endif %}
+    <hr />
 
     {% endfor %}
 

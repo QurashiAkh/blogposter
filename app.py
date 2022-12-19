@@ -70,7 +70,7 @@ def edit(id):
 
     post = Post.query.get_or_404(id)
 
-    if request.method == 'POST':
+    if request.method == 'PUT':
         post.title = request.form['title']
         post.author = request.form['author']
         post.content = request.form['content']
